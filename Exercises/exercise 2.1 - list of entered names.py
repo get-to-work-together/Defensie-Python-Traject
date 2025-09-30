@@ -2,10 +2,10 @@ names = []
 while True:
     name = input('Enter a name: ')
 
-    if name == '':
+    if name:
+        names.append(name)
+    else:
         break
-
-    names.append(name)
 
 print()
 print('The names you entered were:')
