@@ -120,3 +120,17 @@ print(f1 * f2)     # prints 1/5
 print(f1 / f2)     # prints 1 4/5 
 print(3 * f1)      # prints 3/5
 ```
+
+### Andere ideëen
+
+* Query LLM with Python
+* Webscrapper
+* Geospatial
+* Reken Tutor
+* Romeinse getallen 
+* Text-bassd kassa
+* Wat weet je van?
+* Wat ben ik?
+* Scrabble hulp
+* Yathzee
+* Lingo

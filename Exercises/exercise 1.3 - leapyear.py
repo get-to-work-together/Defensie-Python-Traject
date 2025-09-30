@@ -1,7 +1,6 @@
-
 year = int(input('Give a year: '))
 
-is_leapyear = ((year % 4 == 0) and not (year % 100 == 0)) or (year % 400 == 0)
+is_leapyear = ((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0)
 
 print(year, is_leapyear)
 
@@ -16,12 +15,6 @@ print(year, is_leapyear)
 
 
 
-if is_leapyear:
-    print(f'Year {year} is a leapyear')
-else:
-    print(f'Year {year} is NOT a leapyear')
-
-print('Really!')
 
 
 
@@ -35,6 +28,10 @@ print('Really!')
 
 
 
+# if is_leapyear:
+#     print(f'Year {year} is a leapyear')
+# else:
+#     print(f'Year {year} is NOT a leapyear')
 
 
 
@@ -50,9 +47,6 @@ print('Really!')
 #     is_leapyear = False
 #
 # print(year, is_leapyear)
-
-
-
 
 
 

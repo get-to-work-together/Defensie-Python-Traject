@@ -1,15 +1,11 @@
-
 names = []
 while True:
     name = input('Enter a name: ')
 
-    if name:
-        if name in names:
-            print('Name is already in the list')
-        else:
-            names.append(name)
-    else:
+    if name == '':
         break
+
+    names.append(name)
 
 print()
 print('The names you entered were:')

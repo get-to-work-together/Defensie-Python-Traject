@@ -1,16 +1,19 @@
 import random
 
-dice1 = random.randint(1, 6)
-dice2 = random.randint(1, 6)
-dice3 = random.randint(1, 6)
-dice4 = random.randint(1, 6)
-dice5 = random.randint(1, 6)
+die1 = random.randint(1, 6)
+die2 = random.randint(1, 6)
+die3 = random.randint(1, 6)
+die4 = random.randint(1, 6)
+die5 = random.randint(1, 6)
 
-total = dice1 + dice2 + dice3 + dice4 + dice5
+total = die1 + die2 + die3 + die4 + die5
 
-print('Thrown', dice1, dice2, dice3, dice4, dice5)
+print('Thrown', die1, die2, die3, die4, die5)
 print('Total', total)
-print('Gemiddelde', total / 5)
+
+
+
+
 
 
 
@@ -29,9 +32,9 @@ print('Gemiddelde', total / 5)
 # n = 5
 # total = 0
 # for i in range(n):
-#     dice = random.randint(1, 6)
-#     print('Thrown', dice)
-#     total += dice
+#     die = random.randint(1, 6)
+#     print('Thrown', die)
+#     total += die
 #
 # print('Total', total)
 
@@ -67,15 +70,15 @@ print('Gemiddelde', total / 5)
 
 
 
-# dice = []
+# die = []
 # for _ in range(5):
-#     dice.append( random.randint(1, 6) )
+#     die.append( random.randint(1, 6) )
 #
-# print('Thrown', dice)
-# print('Total', sum(dice))
+# print('Thrown', die)
+# print('Total', sum(die))
 
 
-# dice = [random.randint(1, 6) for _ in range(5)]
+# die = [random.randint(1, 6) for _ in range(5)]
 #
-# print('Thrown', dice)
-# print('Total', sum(dice))
+# print('Thrown', die)
+# print('Total', sum(die))

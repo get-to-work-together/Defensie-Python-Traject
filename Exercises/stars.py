@@ -1,5 +1,5 @@
-number = input('Geef een getal: ')
+s = input('Geef een getal: ')
 
-for digit in str(number):
-    n = int(digit)
+for character in s:
+    n = int(character)
     print(n * '★')
