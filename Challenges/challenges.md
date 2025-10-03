@@ -128,7 +128,7 @@ print(3 * f1)      # prints 3/5
 * Geospatial
 * Reken Tutor
 * Romeinse getallen 
-* Text-bassd kassa
+* Text-bassed kassa
 * Wat weet je van?
 * Wat ben ik?
 * Scrabble hulp
