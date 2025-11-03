@@ -1,9 +1,51 @@
 import requests
+import datetime
+import locale
+import matplotlib.pyplot as plt
+
+locale.setlocale(locale.LC_ALL, 'nl_nl.UTF-8')
 
 city = input('Geef plaats: ')
 
 apikey = 'd1526a9039658a6f76950cff21823aff'
 
 url = 'https://api.openweathermap.org/data/2.5/forecast/daily'
-url += 'appid=d1526a9039658a6f76950cff21823aff',
-url += '&cnt=14&units=metric&mode=json&q=paris
+url += '?appid=' + apikey
+url += '&cnt=14'
+url += '&units=metric'
+url += '&mode=json'
+url += '&q=' + city
+
+# print(url)
+
+r = requests.get(url)
+
+if r.status_code != 200:
+    print('Error')
+    exit()
+
+d = r.json()
+
+for day_forecast in d['list']:
+    dt = datetime.date.fromtimestamp(day_forecast['dt'])
+    t = day_forecast['temp']['day']
+    print(dt.strftime('%A %d %B %Y'), t)
+
+
+temps = []
+min_temps = []
+max_temps = []
+dates = []
+for day_forecast in d['list']:
+    temps.append(day_forecast['temp']['day'])
+    min_temps.append(day_forecast['temp']['min'])
+    max_temps.append(day_forecast['temp']['max'])
+    dates.append(datetime.date.fromtimestamp(day_forecast['dt']))
+
+
+plt.fill_between(dates, min_temps, max_temps, alpha=0.4)
+plt.plot(dates, temps, linewidth=3)
+plt.ylim(0, 20)
+plt.grid()
+plt.title(f'14 daagse weersvoorspelling voor {city}')
+plt.show()
