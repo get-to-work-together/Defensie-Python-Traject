@@ -1,0 +1,9 @@
+import requests
+
+city = input('Geef plaats: ')
+
+apikey = 'd1526a9039658a6f76950cff21823aff'
+
+url = 'https://api.openweathermap.org/data/2.5/forecast/daily'
+url += 'appid=d1526a9039658a6f76950cff21823aff',
+url += '&cnt=14&units=metric&mode=json&q=paris
