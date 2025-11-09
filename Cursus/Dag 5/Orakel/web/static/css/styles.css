@@ -1,0 +1,12 @@
+body {
+    background-color: bisque;
+}
+h1 {
+    color: blueviolet;
+}
+#wijsheid {
+    color: darkred;
+    font-size: 300%;
+    margin: 300px 10px;
+    text-align: center;
+}
