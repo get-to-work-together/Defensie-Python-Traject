@@ -3,10 +3,18 @@ from os.path import join, getsize
 import datetime
 import pprint
 
+# import tkinter as tk
+# from tkinter import filedialog
+
+# root = tk.Tk()
+# root.withdraw()
+
+# directory = filedialog.askdirectory()
+
 directory = r'/Users/peter/Computrain/_InCompany/Defensie/Python Traject'
 
 
-for root, dirs, files in os.walk(directory):
+for root, dirs, files in os.walk(directory, followlinks=False):
 
     dirs[:] = [d for d in dirs if not d.startswith('.') and not d.startswith('__')] 
     files[:] = [f for f in files if not f.startswith('.')] 
