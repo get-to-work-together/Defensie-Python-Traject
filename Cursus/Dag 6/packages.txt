@@ -7,3 +7,29 @@ pip install seaborn
 pip install scikit-learn
 pip install geopandas
 pip install plotly
+
+
+
+
+
+
+
+
+
+
+[]
+list
+index / slice
+dict key
+
+
+()
+expressie voorrang
+tuple
+functie / methode
+
+
+{}
+dict
+f-string
+set

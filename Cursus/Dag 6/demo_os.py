@@ -1,5 +1,4 @@
 import os
-from os.path import join, getsize
 import datetime
 import pprint
 
@@ -22,6 +21,7 @@ for root, dirs, files in os.walk(directory, followlinks=False):
     # print('>>>>>>', root)
     # print(dirs)
     # print(files)
+    # print(80 * '-')
 
     entries = []
     for file in files:
