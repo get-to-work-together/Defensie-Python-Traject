@@ -1,5 +1,10 @@
 import matplotlib.pyplot as plt
+import streamlit as st
+import re
+import requests
 
+
+st.set_page_config(layout='wide')
 
 def toner_levels(levels, printer_name="Printer Cartridge Niveau", ax=None):
     colors = ["cyan", "magenta", "yellow", "black"]
@@ -24,19 +29,37 @@ def toner_levels(levels, printer_name="Printer Cartridge Niveau", ax=None):
     ax.set_title(printer_name)
 
 
-data = [
-    {'name': 'Printer ABC - 134.233.120.001', 'levels': [65, 40, 25, 72]},
-    {'name': 'Printer 5 - 134.233.120.011', 'levels': [45, 40, 15, 72]},
-    {'name': 'Printer AdBC - 134.233.120.201', 'levels': [85, 40, 25, 72]},
-    {'name': 'Printer asssd - 134.233.120.031', 'levels': [75, 40, 25, 72]},
-    {'name': 'Printer oiupo - 134.233.120.041', 'levels': [100, 100, 100, 100]},
-]
+# all_data = [
+#     {'name': 'Printer ABC - 134.233.120.001', 'levels': [65, 40, 25, 72]},
+#     {'name': 'Printer 5 - 134.233.120.011', 'levels': [45, 40, 15, 72]},
+#     {'name': 'Printer AdBC - 134.233.120.201', 'levels': [85, 40, 25, 72]},
+#     {'name': 'Printer asssd - 134.233.120.031', 'levels': [75, 40, 25, 72]},
+#     {'name': 'Printer oiupo - 134.233.120.041', 'levels': [100, 100, 100, 100]},
+# ]
 
+url = 'http://127.0.0.1:5000/api/v1/printers'
+response = requests.get(url)
+if response.status_code == 200:
+    all_data = response.json()
+else:
+    all_data = []
+
+
+expression = st.text_input('Select a printer (regular expression)', '')
+regex = re.compile(expression)
+
+data = []
+for item in all_data:
+    if regex.search(item['name']):
+        data.append(item)
 
 plot_width = 5
 plot_height = 5
-ncols = 3
-nrows = len(data) // ncols
+
+# ncols = 3
+ncols = st.number_input('Aantal kolommen', 1, 5, 3)
+
+nrows = max(1, len(data) // ncols)
 if len(data) % ncols != 0:
     nrows += 1
 fig, ax = plt.subplots(nrows, ncols, figsize=(ncols * plot_width, nrows * plot_height), sharey=True, squeeze=False)
@@ -46,8 +69,12 @@ for i, d in enumerate(data):
     icol = i % ncols
     toner_levels(d['levels'], d['name'], ax=ax[irow, icol])
 
-if len(data) % ncols != 0:
-    fig.delaxes(ax[nrows-1, ncols-1])
+for i in range(len(data), nrows * ncols):
+    irow = i // ncols
+    icol = i % ncols
+    ax[irow, icol].axis('off')
 
 plt.tight_layout()
 plt.show()
+
+st.pyplot(fig)
