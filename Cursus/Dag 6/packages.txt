@@ -33,3 +33,8 @@ functie / methode
 dict
 f-string
 set
+
+
+
+
+
